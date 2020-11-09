@@ -28,11 +28,17 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+
+  they both add 1 to the variable count 
   
   2. Which of the two uses a closure? How can you tell?
+
+  counter1 because we have a child function within a parent function which has the variable count, which is passed down and accessed within the child function. 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     counter1 would be preferable if you needed there to be other count variables or other functions that changed the count variable, it would not affect the output of counter1. counter2 would be better if in the system you wanted count to be updated globally. 
 */
 
 // counter1 code
@@ -43,7 +49,10 @@ function counterMaker() {
   }
 }
 
+
 const counter1 = counterMaker();
+
+
 
 // counter2 code
 let count = 0;
@@ -51,6 +60,8 @@ let count = 0;
 function counter2() {
   return count++;
 }
+
+
 
 
 /* Task 2: inning() 
@@ -61,11 +72,19 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+   return Math.floor(Math.random()*3)
 
 }
+
+console.log(inning())
+// console.log(inning())
+// console.log(inning())
+// console.log(inning())
+// console.log(inning())
+// console.log(inning())
+// console.log(inning())
 
 /* Task 3: finalScore()
 Use the finalScore function below to do the following:
