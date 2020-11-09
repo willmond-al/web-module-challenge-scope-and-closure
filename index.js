@@ -78,7 +78,7 @@ function inning(){
 
 }
 
-console.log(inning())
+
 // console.log(inning())
 // console.log(inning())
 // console.log(inning())
@@ -99,20 +99,37 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
 
-  /*Code Here*/
+function finalScore(inningCB, inningsCount){
+  let homeScore = 0
+  let awayScore = 0
+  for (let i = 0; i<inningsCount; i++){
+    
+    homeScore = homeScore + inningCB();
+    awayScore = awayScore + inningCB();
+  }
+  
+  return {
+    Home: homeScore,
+    Away: awayScore
+  }
 
 }
+console.log(finalScore(inning, 9))
 
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inningCB) {
+  return {
+    Home: inningCB(),
+    Away: inningCB()
+  }
 }
+
+console.log(getInningScore(inning))
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
   1. Receive a callback function, that you create, called `getInningScore`
