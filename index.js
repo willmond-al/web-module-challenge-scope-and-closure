@@ -100,10 +100,10 @@ For example: invoking finalScore(inning, 9) might return this object:
 */ 
 
 
-function finalScore(inningCB, inningsCount){
+function finalScore(inningCB, inningCount){
   let homeScore = 0
   let awayScore = 0
-  for (let i = 0; i<inningsCount; i++){
+  for (let i = 0; i<inningCount; i++){
     
     homeScore = homeScore + inningCB();
     awayScore = awayScore + inningCB();
@@ -130,6 +130,7 @@ function getInningScore(inningCB) {
 }
 
 console.log(getInningScore(inning))
+
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
   1. Receive a callback function, that you create, called `getInningScore`
@@ -173,10 +174,23 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
+function scoreboard(getInningScoreCB, inningCB, inningCount) {
+  let homeScore = 0
+  let awayScore = 0
+  let finalResult = []
+  for (let i = 0; i<inningCount; i++){
+    finalResult = [`Inning ${i+1}: Away ${getInningScoreCB(inningCB).Away} - Home ${getInningScoreCB(inningCB).Home}`]
+      console.log(finalResult)
+  }
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+
+  return `Final Score: Away ${awayScore} - Home ${homeScore}`
+  
 }
+
+console.log(scoreboard(getInningScore, inning , 9))
+
+
 
 
 
